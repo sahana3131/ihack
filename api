@@ -1,0 +1,68 @@
+Base URL: https://travel-itinerary-engine.com/api
+
+Endpoints:
+
+GET /destinations
+
+Description: Returns a list of available destinations
+
+Response:
+{
+    "destinations": [
+        "New York, NY",
+        "London, UK",
+        "Paris, France",
+        ...
+    ]
+}
+
+GET /itinerary
+
+Description: Returns an itinerary for the given parameters
+
+Parameters:
+- budget (required, float): The budget for the trip
+- start_date (required, string): The start date of the trip in mm/dd/yyyy format
+- end_date (required, string): The end date of the trip in mm/dd/yyyy format
+- destination (required, string): The preferred destination for the trip
+- activities (optional, list of strings): The activities the user is interested in
+
+Response:
+{
+    "itinerary": {
+        "destination": "New York, NY",
+        "start_date": "01/01/2023",
+        "end_date": "01/03/2023",
+        "budget": 1000,
+        "itinerary_items": [
+            {
+                "activity": "Statue of Liberty Tour",
+                "date": "01/01/2023",
+                "cost": 50
+            },
+            {
+                "activity": "Central Park Tour",
+                "date": "01/02/2023",
+                "cost": 25
+            },
+            ...
+        ]
+    },
+    "additional_options": [
+        {
+            "destination": "Las Vegas, NV",
+            "start_date": "01/01/2023",
+            "end_date": "01/03/2023",
+            "budget": 1100,
+            "itinerary_items": [
+                {
+                    "activity": "Grand Canyon Helicopter Tour",
+                    "date": "01/01/2023",
+                    "cost": 100
+                },
+                ...
+            ]
+        },
+        ...
+    ]
+}
